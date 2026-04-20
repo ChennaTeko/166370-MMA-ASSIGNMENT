@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Audio Player</title>
+
+<style>
+body{
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+background:
+linear-gradient(rgba(255, 255, 255, 0.963), rgba(255, 255, 255, 0.228)),
+url('image1.jpg') no-repeat center/cover;
+}
+
+.player{
+background:white;
+padding:30px;
+border-radius:25px;
+width:420px;
+margin:auto;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.controls-top{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#ff69b4;
+color:white;
+transition:0.2s;
+}
+
+button.active{
+background:#d63384;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.progress{
+width:100%;
+height:8px;
+background:#eee;
+border-radius:5px;
+margin:10px 0;
+overflow:hidden
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#ff69b4
+}
+
+.volume-box{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+}
+
+input[type="range"]{
+width:150px;
+}
+
+.speed-buttons{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px;
+margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="player">
+<h2> 💿 MUSIC PLAYER</h2>
+
+<audio id="audio" src="song.mp3"></audio>
+
+<div class="controls-top">
+<button onclick="playAudio()">▶ Play</button>
+<button onclick="pauseAudio()">⏸ Pause</button>
+<button id="loopBtn" onclick="toggleLoop()"> Loop</button>
+</div>
+
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+<p id="time">0:00</p>
+
+<div class="volume-box">
+<input type="range" min="0" max="100" value="100" oninput="setVolume(this.value)">
+<span id="volDisplay">100%</span>
+<button onclick="toggleMute()">🔇 Mute</button>
+</div>
+
+<br>
+
+<button onclick="back()">⏮ 10s</button>
+<button onclick="forward()">⏭ 10s</button>
+
+<div class="speed-buttons">
+<button onclick="speed(0.5)">0.5x</button>
+<button onclick="speed(1)">1x</button>
+<button onclick="speed(1.5)">1.5x</button>
+<button onclick="speed(2)">2x</button>
+</div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
