@@ -4,7 +4,7 @@ const progressBar = document.getElementById("progressBar")
 const volDisplay = document.getElementById("volDisplay")
 const loopBtn = document.getElementById("loopBtn")
 
-// PLAY / PAUSE (only one active)
+// PLAY / PAUSE 
 const playBtn = document.querySelector(".controls-top button:nth-child(1)")
 const pauseBtn = document.querySelector(".controls-top button:nth-child(2)")
 
@@ -20,7 +20,7 @@ pauseBtn.classList.add("active")
 playBtn.classList.remove("active")
 }
 
-// SPEED (only one active at a time)
+// SPEED 
 function speed(rate){
 audio.playbackRate = rate
 
@@ -30,7 +30,7 @@ speedBtns.forEach(btn => btn.classList.remove("active"))
 event.target.classList.add("active")
 }
 
-// LOOP (toggle on/off)
+// LOOP 
 function toggleLoop(){
 audio.loop = !audio.loop
 loopBtn.classList.toggle("active")
@@ -73,7 +73,7 @@ function back(){
 audio.currentTime -= 10
 }
 
-// TIME + PROGRESS
+// TIME 
 audio.addEventListener("timeupdate", () => {
 let m = Math.floor(audio.currentTime / 60)
 let s = Math.floor(audio.currentTime % 60)
@@ -85,7 +85,7 @@ let progress = (audio.currentTime / audio.duration) * 100
 progressBar.style.width = progress + "%"
 })
 
-// KEYBOARD CONTROLS
+// KEYBOARD 
 document.addEventListener("keydown", (e) => {
 if(e.code === "Space"){
 if(audio.paused){
